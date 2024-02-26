@@ -16,6 +16,7 @@ public void draw()
     drawBranches(320, 380, 150, 3*Math.PI/2);
     branchAngle += .2;
   }
+  
 
 } 
 public void drawBranches(int x, int y, double branchLength, double angle) 
@@ -32,10 +33,12 @@ public void drawBranches(int x, int y, double branchLength, double angle)
   endY2 = (int)(branchLength*Math.sin(angle2) + y);
   line(x, y, endX1, endY1);
   line(x, y, endX2, endY2);
+  ellipse(x,y,5,5);
   if (branchLength > smallestBranch) {
     drawBranches(endX1, endY1, branchLength/2, angle-6);
     stroke((int)(Math.random()*200)+50,(int)(Math.random()*200)+50,(int)(Math.random()*200)+50);  
     drawBranches(endX2, endY2, branchLength/2, angle+6);
     stroke((int)(Math.random()*200)+50,(int)(Math.random()*200)+50,(int)(Math.random()*200)+50); 
   } 
+  
 }
